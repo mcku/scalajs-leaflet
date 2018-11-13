@@ -257,6 +257,15 @@ trait PanSetters[T <: js.Object, B <: SCOptionBuilder[T,_]] extends SCOptionSett
   def noMoveStart(v:Boolean)= jsOpt(v)
 }
 
+@js.native
+trait FullScreenControlOptions extends js.Object
+object FullScreenControlOptions extends FullScreenControlOptionBuilder(noOpts)
+class FullScreenControlOptionBuilder(val dict:OptMap) extends SCOptionBuilder[FullScreenControlOptions, FullScreenControlOptionBuilder](new FullScreenControlOptionBuilder(_))
+ with FullScreenControlSetters[FullScreenControlOptions, FullScreenControlOptionBuilder]
+
+trait FullScreenControlSetters[T <: js.Object, B <: SCOptionBuilder[T,_]] extends SCOptionSetter[T, B] {
+  def pseudoFullscreen(v:Boolean)= jsOpt(v)
+}
 
 @js.native
 trait LMapOptions extends js.Object
@@ -304,6 +313,9 @@ class LMapOptionBuilder(val dict:OptMap) extends SCOptionBuilder[LMapOptions, LM
   def tapTolerance(v:Int) = jsOpt(v)
   def touchZoom(v:Boolean|String) = jsOpt(v)
   def bounceAtZoomLimits(v:Boolean) = jsOpt(v)
+
+  // see https://github.com/Leaflet/Leaflet.fullscreen
+  def fullscreenControl(v:Boolean|FullScreenControlOptions) = jsOpt(v)
 }
 
 @js.native
