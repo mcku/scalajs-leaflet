@@ -334,7 +334,7 @@ trait Layer extends js.Object with Evented{
   def onAdd(map:LMap):Unit = js.native
   def onRemove(map:LMap):Unit = js.native
 
-  def bindPopup(html:String|HTMLElement, popupOptions:PopupOptions= ???):this.type = js.native
+  def bindPopup(html:String, popupOptions:PopupOptions= ???):this.type = js.native
   def unbindPopup():this.type = js.native
   def openPopup(latlng: LatLng, popupOptions:PopupOptions= ???):this.type = js.native
   def openPopup():this.type = js.native
@@ -696,8 +696,8 @@ trait Popup extends Layer {
   def openOn(map:LMap):this.type = js.native
   def setLatLng(latlng:LatLng):this.type = js.native
   def getLatLng():LatLng = js.native
-  def setContent(content:String|HTMLElement):this.type = js.native
-  def getContent():String|HTMLElement = js.native
+  def setContent(content:String):this.type = js.native
+  def getContent():String = js.native
   def update():Unit = js.native
   def isOpen():Boolean = js.native
   def bringToFront():this.type = js.native
