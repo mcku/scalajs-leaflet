@@ -19,7 +19,7 @@ abstract class SCOptionBuilder[T <: js.Object, B <: SCOptionBuilder[T, _]](copy:
 
 @js.native
 object L extends js.Object {
-  def map(id: String, options: LMapOptions= ???): LMap = js.native
+  def map(id: String | HTMLElement, options: LMapOptions= ???): LMap = js.native
   def latLng(lat: Double, lng: Double): LatLng = js.native
   def latLngBounds(corner1: LatLng, corner2: LatLng): LatLngBounds = js.native
   def tileLayer(url: String, options: TileLayerOptions= ???): TileLayer = js.native
@@ -696,8 +696,8 @@ trait Popup extends Layer {
   def openOn(map:LMap):this.type = js.native
   def setLatLng(latlng:LatLng):this.type = js.native
   def getLatLng():LatLng = js.native
-  def setContent(content:String):this.type = js.native
-  def getContent():String = js.native
+  def setContent(content:String|HTMLElement):this.type = js.native
+  def getContent():String|HTMLElement = js.native
   def update():Unit = js.native
   def isOpen():Boolean = js.native
   def bringToFront():this.type = js.native
